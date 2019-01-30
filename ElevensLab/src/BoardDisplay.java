@@ -39,13 +39,13 @@ public class BoardDisplay extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(600, 250, 868, 316);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(51, 153, 51));
+		contentPane.setBackground(new Color(0, 102, 51));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(51, 153, 51));
+		panel.setBackground(new Color(0, 102, 51));
 		panel.setBounds(10, 23, 832, 263);
 		contentPane.add(panel);
 		
