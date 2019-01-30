@@ -37,7 +37,7 @@ public class ElevensBoard {
 	 * The suits of the cards for this game to be sent to the deck.
 	 */
 	private static final String[] SUITS =
-		{"\u2660", "\u2764", "\u2666", "\u2663"};
+		{"\u2660", "\u2665", "\u2666", "\u2663"};
 
 	/**
 	 * The values of the cards for this game to be sent to the deck.
@@ -55,12 +55,6 @@ public class ElevensBoard {
 	 * The deck of cards being used to play the current game.
 	 */
 	private Deck deck;
-	
-	/**
-	 *  Scanner for selecting cards
-	 */
-
-	private Scanner selectCards;
 	
 	/**
 	 * Flag used to control debugging print statements.
@@ -88,8 +82,11 @@ public class ElevensBoard {
 	 * dealing some cards to this board.
 	 */
 	public void newGame() {
+		
+		deck = new Deck(RANKS, SUITS, POINT_VALUES);
 		deck.shuffle();
 		dealMyCards();
+
 	}
 
 	/**
@@ -166,36 +163,6 @@ public class ElevensBoard {
 			}
 		}
 		return selected;
-	}
-
-	/**
-	 * Generates and returns a string representation of this board.
-	 * @return the string version of this board.
-	 */
-	public String toString() {
-		String s = "";
-		for (int k = 0; k < cards.length; k++) {
-			s = s + k + ": " + cards[k] + "\n";
-		}
-		return s;
-	}
-
-	/**
-	 * Determine whether or not the game has been won,
-	 * i.e. neither the board nor the deck has any more cards.
-	 * @return true when the current game has been won;
-	 *         false otherwise.
-	 */
-	public boolean gameIsWon() {
-		if (deck.isEmpty()) {
-			for (Card c : cards) {
-				if (c != null) {
-					return false;
-				}
-			}
-			return true;
-		}
-		return false;
 	}
 
 	/**
@@ -291,7 +258,7 @@ public class ElevensBoard {
 	 * @return true if the board entries in selectedCards
 	 *              contain an 11-pair; false otherwise.
 	 */
-	private boolean containsPairSum11(List<Integer> selectedCards) {
+	protected boolean containsPairSum11(List<Integer> selectedCards) {
 		
 		if(cards[selectedCards.get(0)].getPointValue() + cards[selectedCards.get(1)].getPointValue() == 11) {
 			
@@ -310,7 +277,7 @@ public class ElevensBoard {
 	 * @return true if the board entries in selectedCards
 	 *              include a jack, a queen, and a king; false otherwise.
 	 */
-	private boolean containsJQK(List<Integer> selectedCards) {
+	protected boolean containsJQK(List<Integer> selectedCards) {
 		
 		if(selectedCards.size() < 3) return false;
 		
@@ -326,103 +293,22 @@ public class ElevensBoard {
 		return false;
 	}
 	
-	public void printCards() {
-		
-		
-		for(int x = 0; x < BOARD_SIZE; x++) {
-			
-			System.out.print(x +". [" + cards[cIndexes.get(x)] + "] ");
-			
-		}
-		
-		System.out.print("\n		Cards Left:" + deckSize() + "               	Score: " + score);
-		
-		selectCards();
-		
-	}
+	/**
+	 * This allows you to display the selected cards on the JFrame
+	 * @return the selected cards .toString() for the JFrame
+	 */
 	
-	public void selectCards() {
+	public ArrayList<Card> displaySelectedCards() {
 		
-		boolean isSelecting = true;
+		ArrayList<Card> selected = new ArrayList<Card>();
 		
-		selectCards = new Scanner(System.in);
-		
-		System.out.println("\n\nSelect card position to match.");
-		
-		while(isSelecting) {
+		for(int x = 0; x < selectedCards.size(); x++) {
 			
-			if(isEmpty()) {
-				
-				System.out.println("You Win!");
-				
-			}
-			
-			if(deckSize() > 0) {if(!anotherPlayIsPossible()) {
-				
-				System.out.println("GAME OVER     Final Score:" + score);
-				
-				isSelecting = false;
-				
-			}}
-			
-			selectedCards.add(selectCards.nextInt());
-			
-			while(selectedCards.get(selectedCards.size()-1) > 8 || selectedCards.get(selectedCards.size()-1) < 0){
-				
-				selectedCards.remove(selectedCards.size()-1);
-				
-				System.out.println("OutOfBounds, select again.");
-				
-				selectedCards.add(selectCards.nextInt());
-				
-			}
-			
-			System.out.println("Current selection : " + selectedCards);
-			
-			if(selectedCards.size() > 1) {
-			
-			if(isLegal(selectedCards)) {
-				
-				if(containsPairSum11(selectedCards)) {
-				replaceSelectedCards(selectedCards);
-				selectedCards.clear();
-				System.out.println("\n\n\n\n\n\n\nSum is 11!");
-				score++;
-				printCards();
-				
-				
-				
-				
-			}
-			
-				if(containsJQK(selectedCards)) {
-				
-				replaceSelectedCards(selectedCards);
-				selectedCards.clear();
-				System.out.println("\n\n\n\n\n\n\nContains JQK!");
-				score++;
-				printCards();
-				
-				
-				
-				} 
-			
-			}
-			
-				if(!isLegal(selectedCards)) {
-				
-				selectedCards.clear();
-				System.out.println("\n\n\n\n\n\nNo possible pairs or JQK.");
-				printCards();
-				
-				}
-			}
-			
-			
+			selected.add(cardAt(selectedCards.get(x)));
 			
 		}
 		
-		
+		return selected;
 		
 	}
 	

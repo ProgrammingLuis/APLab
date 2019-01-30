@@ -51,6 +51,11 @@ public class Deck {
 	
 	// methods
 	
+	/**
+	 * Tests if the deck is empty.
+	 * @return true or false depending on the size of the deck.
+	 */
+	
 	public boolean isEmpty() {
 		
 		if(size==0) return true;
@@ -59,11 +64,21 @@ public class Deck {
 		
 	};
 	
+	/**
+	 * Size of deck.
+	 * @return size of the deck
+	 */
+	
 	public int size() {
 		
 		return size;
 		
 	}
+	
+	/**
+	 * Deals a card
+	 * @return a dealt card
+	 */
 	
 	public Card deal() {
 		
@@ -72,6 +87,11 @@ public class Deck {
 		return myDeck.get(--size);
 		
 	}
+	
+	/**
+	 * Shuffles cards
+	 * @return a shuffled deck
+	 */
 	
 	public ArrayList<Card> shuffle(){
 		

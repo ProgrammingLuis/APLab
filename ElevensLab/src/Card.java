@@ -26,11 +26,19 @@ public class Card {
 	
 	// methods
 	
+	/**
+	 * @return rank of card
+	 */
+	
 	public String getRank() {
 		
 		return rank;
 		
 	}
+	
+	/**
+	 * @return suit of card
+	 */
 	
 	public String getSuit() {
 		
@@ -38,11 +46,19 @@ public class Card {
 		
 	}
 	
+	/**
+	 * @return pointValue of card
+	 */
+	
 	public int getPointValue() {
 		
 		return pointValue;
 		
 	}
+	
+	/**
+	 * @param x is to set rank
+	 */
 	
 	public void setRank(String x) {
 		
@@ -50,11 +66,19 @@ public class Card {
 		
 	}
 	
+	/**
+	 * @param x is to set Suit
+	 */
+	
 	public void setSuit(String x) {
 		
 		this.suit = x;
 		
 	}
+	
+	/**
+	 * @param x is to set pointValue
+	 */
 	
 	public void setPointValue(int x) {
 		
@@ -62,11 +86,21 @@ public class Card {
 		
 	}
 	
+	/**
+	 * @return card in a nice string form
+	 */
+	
 	public String toString() {
 		
 		return rank + suit /*+ " (pointvalue = " + pointValue + ")"*/;
 		
 	}
+	
+	/**
+	 * 
+	 * @param card to test equality between cards
+	 * @return true or false depending on the equality condition.
+	 */
 	
 	public boolean isEqual(Card card) {
 		

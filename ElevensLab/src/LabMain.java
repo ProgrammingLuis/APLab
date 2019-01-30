@@ -3,10 +3,9 @@ public class LabMain {
 
 	public static void main(String[] args) {
 		
-		ElevensBoard board = new ElevensBoard();
+		BoardDisplay display = new BoardDisplay();
 			
-		board.printCards();
-		
+		display.setVisible(true);
 		
 	} 
 
