@@ -6,15 +6,10 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import java.awt.Image;
-
 import javax.swing.JTextField;
 import javax.swing.UIManager;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import java.awt.Dimension;
 import java.awt.Insets;
-import java.awt.LayoutManager;
 
 public class BoardDisplay extends JFrame{
 	
@@ -42,7 +37,7 @@ public class BoardDisplay extends JFrame{
 		
 		setTitle("                                                                                                                           Elevens");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 868, 316);
+		setBounds(600, 250, 868, 316);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(51, 153, 51));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
