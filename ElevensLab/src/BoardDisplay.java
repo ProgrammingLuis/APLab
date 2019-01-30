@@ -209,7 +209,7 @@ public class BoardDisplay extends JFrame{
 		txtSelectCards.setForeground(Color.BLACK);
 		txtSelectCards.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		txtSelectCards.setText("Select Cards");
-		txtSelectCards.setBounds(32, 131, 116, 30);
+		txtSelectCards.setBounds(32, 131, 90, 30);
 		txtSelectCards.setBackground(Color.WHITE);
 		panel.add(txtSelectCards);
 		txtSelectCards.setColumns(10);
