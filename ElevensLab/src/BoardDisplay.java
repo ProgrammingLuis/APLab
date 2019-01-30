@@ -238,12 +238,6 @@ public class BoardDisplay extends JFrame{
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				for(int x = 0; x < board.selectedCards.size(); x++) {
-					
-					buttons[board.selectedCards.get(x)].setBackground(UIManager.getColor("Button.background"));
-					
-					}
-				
 				board.selectedCards.clear();
 				txtCurrentSelection.setText("Current Selection: ");
 				board.newGame();
@@ -252,6 +246,7 @@ public class BoardDisplay extends JFrame{
 				
 				for(int x = 0; x < 9; x++) {
 					
+					buttons[x].setVisible(true);
 					buttons[x].setIcon(cardIcon(x));
 					
 				}
