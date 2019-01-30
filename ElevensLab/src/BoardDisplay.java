@@ -6,10 +6,17 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import java.awt.Dimension;
+import java.awt.Insets;
+import java.awt.LayoutManager;
 
-public class BoardDisplay extends JFrame {
+public class BoardDisplay extends JFrame{
 	
 	/**
 	 * Don't know what this if for.
@@ -22,9 +29,11 @@ public class BoardDisplay extends JFrame {
 	private JTextField txtCardsLeft;
 	private JTextField txtSelectCards;
 	private JTextField txtCurrentSelection;
+	private JButton btnNewButton_2;
 	
 	JButton[] buttons = new JButton[9];
-	private JTextField txtMadeByLuis;
+	
+	//private JTextField txtMadeByLuis;
 
 	/**
 	 * Create the frame and play the game :).
@@ -33,7 +42,7 @@ public class BoardDisplay extends JFrame {
 		
 		setTitle("                                                                                                                           Elevens");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 868, 567);
+		setBounds(100, 100, 868, 316);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(51, 153, 51));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -47,13 +56,14 @@ public class BoardDisplay extends JFrame {
 		
 		panel.setLayout(null);
 		
-		JButton btnNewButton = new JButton(board.cardAt(0).toString());
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		JButton btnNewButton = new JButton();	
+		btnNewButton.setIconTextGap(-20);
+		btnNewButton.setMargin(new Insets(0, 0, 0, 0));
+		btnNewButton.setIcon(cardIcon(0));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				board.selectedCards.add(0);
-				btnNewButton.setBackground(Color.YELLOW);
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
@@ -62,73 +72,78 @@ public class BoardDisplay extends JFrame {
 		btnNewButton.setBounds(32, 36, 64, 84);
 		panel.add(btnNewButton);
 		
-		JButton button = new JButton(board.cardAt(1).toString());
+		JButton button = new JButton();
+		button.setIconTextGap(-20);
+		button.setMargin(new Insets(0, 0, 0, 0));
+		button.setIcon(cardIcon(1));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(1);
-				button.setBackground(Color.YELLOW);
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
 			}
 		});
-		button.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		button.setBounds(106, 36, 64, 84);
 		panel.add(button);
 		
-		JButton button_1 = new JButton(board.cardAt(2).toString());
+		JButton button_1 = new JButton();
+		button_1.setIconTextGap(-20);
+		button_1.setMargin(new Insets(0, 0, 0, 0));
+		button_1.setIcon(cardIcon(2));
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(2);
-				button_1.setBackground(Color.YELLOW);
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
 			}
 		});
-		button_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		button_1.setBounds(185, 36, 64, 84);
 		panel.add(button_1);
 		
-		JButton button_2 = new JButton(board.cardAt(3).toString());
+		JButton button_2 = new JButton();
+		button_2.setIconTextGap(-20);
+		button_2.setMargin(new Insets(0, 0, 0, 0));
+		button_2.setIcon(cardIcon(3));
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(3);
-				button_2.setBackground(Color.YELLOW);
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
 			}
 		});
-		button_2.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		button_2.setBounds(261, 36, 64, 84);
 		panel.add(button_2);
 		
-		JButton button_3 = new JButton(board.cardAt(4).toString());
+		JButton button_3 = new JButton();
+		button_3.setIconTextGap(-20);
+		button_3.setMargin(new Insets(0, 0, 0, 0));
+		button_3.setIcon(cardIcon(4));
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(4);
-				button_3.setBackground(Color.YELLOW);
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
 			}
 		});
-		button_3.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		button_3.setBounds(335, 36, 64, 84);
 		panel.add(button_3);
 		
-		JButton button_4 = new JButton(board.cardAt(5).toString());
-		button_4.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		JButton button_4 = new JButton();
+		button_4.setIconTextGap(-20);
+		button_4.setMargin(new Insets(0, 0, 0, 0));
+		button_4.setIcon(cardIcon(5));
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(5);
-				button_4.setBackground(Color.YELLOW);
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
@@ -137,28 +152,30 @@ public class BoardDisplay extends JFrame {
 		button_4.setBounds(408, 36, 64, 84);
 		panel.add(button_4);
 		
-		JButton button_5 = new JButton(board.cardAt(6).toString());
+		JButton button_5 = new JButton();
+		button_5.setIconTextGap(-20);
+		button_5.setMargin(new Insets(0, 0, 0, 0));
+		button_5.setIcon(cardIcon(6));
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(6);
-				button_5.setBackground(Color.YELLOW);
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
 			}
 		});
-		button_5.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		button_5.setBounds(482, 36, 64, 84);
 		panel.add(button_5);
 		
-		JButton button_6 = new JButton(board.cardAt(7).toString());
-		button_6.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		JButton button_6 = new JButton();
+		button_6.setIconTextGap(-20);
+		button_6.setMargin(new Insets(0, 0, 0, 0));
+		button_6.setIcon(cardIcon(7));
 		button_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(7);
-				button_6.setBackground(Color.YELLOW);
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
@@ -167,18 +184,19 @@ public class BoardDisplay extends JFrame {
 		button_6.setBounds(556, 36, 64, 84);
 		panel.add(button_6);
 		
-		JButton button_7 = new JButton(board.cardAt(8).toString());
+		JButton button_7 = new JButton();
+		button_7.setIconTextGap(-20);
+		button_7.setMargin(new Insets(0, 0, 0, 0));
+		button_7.setIcon(cardIcon(8));
 		button_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(8);
-				button_7.setBackground(Color.YELLOW);
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
 			}
 		});
-		button_7.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		button_7.setBounds(630, 36, 64, 84);
 		panel.add(button_7);
 		
@@ -187,7 +205,7 @@ public class BoardDisplay extends JFrame {
 		txtCardsLeft.setBackground(Color.WHITE);
 		txtCardsLeft.setFont(new Font("Times New Roman", Font.PLAIN, 17));
 		txtCardsLeft.setText("Cards Left:" + board.deckSize());
-		txtCardsLeft.setBounds(714, 36, 108, 84);
+		txtCardsLeft.setBounds(714, 124, 108, 42);
 		panel.add(txtCardsLeft);
 		txtCardsLeft.setColumns(10);
 		txtCardsLeft.setEditable(false);
@@ -239,7 +257,7 @@ public class BoardDisplay extends JFrame {
 				
 				for(int x = 0; x < 9; x++) {
 					
-					buttons[x].setText(board.cardAt(x).toString());
+					buttons[x].setIcon(cardIcon(x));
 					
 				}
 				
@@ -249,12 +267,20 @@ public class BoardDisplay extends JFrame {
 		btnNewButton_1.setBounds(356, 173, 138, 68);
 		panel.add(btnNewButton_1);
 		
-		txtMadeByLuis = new JTextField();
+		btnNewButton_2 = new JButton();
+		btnNewButton_2.setIcon(new ImageIcon(BoardDisplay.class.getResource("/DeckOfCards/red_back.png")));
+		btnNewButton_2.setIconTextGap(-20);
+		btnNewButton_2.setMargin(new Insets(0, 0, 0, 0));
+		btnNewButton_2.setBounds(734, 36, 64, 84);
+		panel.add(btnNewButton_2);
+		
+		
+		/*txtMadeByLuis = new JTextField();
 		txtMadeByLuis.setFont(new Font("Times New Roman", Font.PLAIN, 66));
 		txtMadeByLuis.setText("Made by Luis Hernandez :)");
 		txtMadeByLuis.setBounds(58, 318, 729, 170);
 		contentPane.add(txtMadeByLuis);
-		txtMadeByLuis.setColumns(10);
+		txtMadeByLuis.setColumns(10);*/
 		
 	}
 	
@@ -264,7 +290,6 @@ public class BoardDisplay extends JFrame {
 	 */
 	
 	public void game() {
-		
 
 		if(board.isLegal(board.selectedCards)) {
 			
@@ -279,8 +304,9 @@ public class BoardDisplay extends JFrame {
 						buttons[board.selectedCards.get(x)].setVisible(false);									
 						
 						} else {
-							buttons[board.selectedCards.get(x)].setText(board.cardAt(board.selectedCards.get(x)).toString());
-							buttons[board.selectedCards.get(x)].setBackground(UIManager.getColor("Button.background"));
+							
+							buttons[board.selectedCards.get(x)].setIcon(cardIcon(board.selectedCards.get(x)));
+							
 							}
 					
 					
@@ -304,8 +330,9 @@ public class BoardDisplay extends JFrame {
 						buttons[board.selectedCards.get(x)].setVisible(false);
 						
 						} else {
-							buttons[board.selectedCards.get(x)].setText(board.cardAt(board.selectedCards.get(x)).toString());
-							buttons[board.selectedCards.get(x)].setBackground(UIManager.getColor("Button.background"));
+							
+							buttons[board.selectedCards.get(x)].setIcon(cardIcon(board.selectedCards.get(x)));
+							
 							}
 					
 					}
@@ -319,12 +346,6 @@ public class BoardDisplay extends JFrame {
 		}
 		
 			if(!board.isLegal(board.selectedCards)) {
-			
-				for(int x = 0; x < board.selectedCards.size(); x++) {
-					
-					buttons[board.selectedCards.get(x)].setBackground(UIManager.getColor("Button.background"));
-					
-					}
 				
 			board.selectedCards.clear();
 			
@@ -344,7 +365,28 @@ public class BoardDisplay extends JFrame {
 				
 			}}
 			
+			if(board.deckSize() == 0) {
+				
+				btnNewButton_2.setVisible(false);
+				
+			}
+			
 		}
+	
+	/**
+	 * 
+	 * @param x is the position of the card in the dealt hand
+	 * @return the image of the card in the xth position
+	 */
+	
+	private ImageIcon cardIcon(int x) {
 		
+		ImageIcon icon;
+		
+		icon = new ImageIcon(BoardDisplay.class.getResource("/DeckOfCards/" + board.cardAt(x).toString() + ".png"));
+		
+		return icon;
+		
+	}
 }
 

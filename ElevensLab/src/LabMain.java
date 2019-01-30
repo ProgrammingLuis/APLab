@@ -1,12 +1,12 @@
 
+
 public class LabMain {
 
 	public static void main(String[] args) {
 		
-		BoardDisplay display = new BoardDisplay();
+	BoardDisplay display = new BoardDisplay();
 			
-		display.setVisible(true);
+	display.setVisible(true);
 		
-	} 
-
+	}
 }

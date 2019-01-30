@@ -1,6 +1,5 @@
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ElevensBoard {
 
@@ -37,7 +36,7 @@ public class ElevensBoard {
 	 * The suits of the cards for this game to be sent to the deck.
 	 */
 	private static final String[] SUITS =
-		{"\u2660", "\u2665", "\u2666", "\u2663"};
+		{"C", "D", "H", "S"};
 
 	/**
 	 * The values of the cards for this game to be sent to the deck.
@@ -298,13 +297,14 @@ public class ElevensBoard {
 	 * @return the selected cards .toString() for the JFrame
 	 */
 	
-	public ArrayList<Card> displaySelectedCards() {
+	
+	public ArrayList<String> displaySelectedCards() {
 		
-		ArrayList<Card> selected = new ArrayList<Card>();
+		ArrayList<String> selected = new ArrayList<String>();
 		
 		for(int x = 0; x < selectedCards.size(); x++) {
 			
-			selected.add(cardAt(selectedCards.get(x)));
+			selected.add(cardAt(selectedCards.get(x)).getRank());
 			
 		}
 		
