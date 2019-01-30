@@ -241,6 +241,7 @@ public class BoardDisplay extends JFrame{
 				txtCurrentSelection.setText("Current Selection: ");
 				board.newGame();
 				
+				btnNewButton_2.setVisible(true);
 				txtCardsLeft.setText("Cards Left:" + board.deckSize());
 				
 				for(int x = 0; x < 9; x++) {
