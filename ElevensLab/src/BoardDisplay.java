@@ -21,13 +21,10 @@ public class BoardDisplay extends JFrame{
 	
 	private JPanel contentPane;
 	private JTextField txtCardsLeft;
-	//private JTextField txtSelectCards;
 	private JTextField txtCurrentSelection;
 	private JButton btnNewButton_2;
 	
 	JButton[] buttons = new JButton[9];
-	
-	//private JTextField txtMadeByLuis;
 
 	/**
 	 * Create the frame and play the game :).
@@ -206,16 +203,6 @@ public class BoardDisplay extends JFrame{
 		txtCardsLeft.setColumns(10);
 		txtCardsLeft.setEditable(false);
 		
-		/*txtSelectCards = new JTextField();
-		txtSelectCards.setForeground(Color.BLACK);
-		txtSelectCards.setFont(new Font("Times New Roman", Font.PLAIN, 16));
-		txtSelectCards.setText("Select Cards");
-		txtSelectCards.setBounds(32, 131, 90, 30);
-		txtSelectCards.setBackground(Color.WHITE);
-		panel.add(txtSelectCards);
-		txtSelectCards.setColumns(10);
-		txtSelectCards.setEditable(false);*/
-		
 		txtCurrentSelection = new JTextField();
 		txtCurrentSelection.setBackground(Color.WHITE);
 		txtCurrentSelection.setFont(new Font("Times New Roman", Font.PLAIN, 16));
@@ -266,14 +253,6 @@ public class BoardDisplay extends JFrame{
 		btnNewButton_2.setMargin(new Insets(0, 0, 0, 0));
 		btnNewButton_2.setBounds(740, 36, 64, 84);
 		panel.add(btnNewButton_2);
-		
-		
-		/*txtMadeByLuis = new JTextField();
-		txtMadeByLuis.setFont(new Font("Times New Roman", Font.PLAIN, 66));
-		txtMadeByLuis.setText("Made by Luis Hernandez :)");
-		txtMadeByLuis.setBounds(58, 318, 729, 170);
-		contentPane.add(txtMadeByLuis);
-		txtMadeByLuis.setColumns(10);*/
 		
 	}
 	
