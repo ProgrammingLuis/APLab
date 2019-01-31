@@ -21,7 +21,7 @@ public class BoardDisplay extends JFrame{
 	
 	private JPanel contentPane;
 	private JTextField txtCardsLeft;
-	private JTextField txtSelectCards;
+	//private JTextField txtSelectCards;
 	private JTextField txtCurrentSelection;
 	private JButton btnNewButton_2;
 	
@@ -44,6 +44,8 @@ public class BoardDisplay extends JFrame{
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBorder(null);
+		panel.setForeground(new Color(51, 102, 51));
 		panel.setBackground(new Color(0, 102, 51));
 		panel.setBounds(10, 23, 832, 263);
 		contentPane.add(panel);
@@ -195,16 +197,16 @@ public class BoardDisplay extends JFrame{
 		panel.add(button_7);
 		
 		txtCardsLeft = new JTextField();
-		txtCardsLeft.setForeground(Color.BLACK);
-		txtCardsLeft.setBackground(Color.WHITE);
+		txtCardsLeft.setForeground(new Color(255, 255, 255));
+		txtCardsLeft.setBackground(new Color(51, 102, 51));
 		txtCardsLeft.setFont(new Font("Times New Roman", Font.PLAIN, 17));
 		txtCardsLeft.setText("Cards Left:" + board.deckSize());
-		txtCardsLeft.setBounds(714, 124, 108, 42);
+		txtCardsLeft.setBounds(720, 124, 102, 42);
 		panel.add(txtCardsLeft);
 		txtCardsLeft.setColumns(10);
 		txtCardsLeft.setEditable(false);
 		
-		txtSelectCards = new JTextField();
+		/*txtSelectCards = new JTextField();
 		txtSelectCards.setForeground(Color.BLACK);
 		txtSelectCards.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		txtSelectCards.setText("Select Cards");
@@ -212,11 +214,12 @@ public class BoardDisplay extends JFrame{
 		txtSelectCards.setBackground(Color.WHITE);
 		panel.add(txtSelectCards);
 		txtSelectCards.setColumns(10);
-		txtSelectCards.setEditable(false);
+		txtSelectCards.setEditable(false);*/
 		
 		txtCurrentSelection = new JTextField();
 		txtCurrentSelection.setBackground(Color.WHITE);
 		txtCurrentSelection.setFont(new Font("Times New Roman", Font.PLAIN, 16));
+
 		txtCurrentSelection.setText("Current Selection: ");
 		txtCurrentSelection.setBounds(247, 131, 361, 31);
 		panel.add(txtCurrentSelection);
@@ -261,7 +264,7 @@ public class BoardDisplay extends JFrame{
 		btnNewButton_2.setIcon(new ImageIcon(BoardDisplay.class.getResource("/DeckOfCards/red_back.png")));
 		btnNewButton_2.setIconTextGap(-20);
 		btnNewButton_2.setMargin(new Insets(0, 0, 0, 0));
-		btnNewButton_2.setBounds(734, 36, 64, 84);
+		btnNewButton_2.setBounds(740, 36, 64, 84);
 		panel.add(btnNewButton_2);
 		
 		
@@ -378,5 +381,6 @@ public class BoardDisplay extends JFrame{
 		return icon;
 		
 	}
+	
 }
 
