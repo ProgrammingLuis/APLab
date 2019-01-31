@@ -304,11 +304,37 @@ public class ElevensBoard {
 		
 		for(int x = 0; x < selectedCards.size(); x++) {
 			
-			selected.add(cardAt(selectedCards.get(x)).getRank());
+			selected.add(cardAt(selectedCards.get(x)).getRank() + displayTextSuit(cardAt(selectedCards.get(x)).getSuit()));
 			
 		}
 		
 		return selected;
+		
+	}
+	
+	private String displayTextSuit(String suit) {
+		
+		String textSuit = "";
+		
+		if(suit.equals("S")) {
+			
+			textSuit = "\u2660";
+			
+		} else if(suit.equals("C")) {
+			
+			textSuit = "\u2663";
+			
+		} else if(suit.equals("D")) {
+			
+			textSuit = "\u2666";
+			
+		} else if(suit.equals("H")) {
+			
+			textSuit = "\u2665";
+			
+		}
+		
+		return textSuit;
 		
 	}
 	
