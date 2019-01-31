@@ -57,6 +57,7 @@ public class BoardDisplay extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 
 				board.selectedCards.add(0);
+				btnNewButton.setIcon(highlightedCard(0));
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
@@ -73,6 +74,7 @@ public class BoardDisplay extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(1);
+				button.setIcon(highlightedCard(1));
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
@@ -89,6 +91,7 @@ public class BoardDisplay extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(2);
+				button_1.setIcon(highlightedCard(2));
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
@@ -105,6 +108,7 @@ public class BoardDisplay extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(3);
+				button_2.setIcon(highlightedCard(3));
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
@@ -121,6 +125,7 @@ public class BoardDisplay extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(4);
+				button_3.setIcon(highlightedCard(4));
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
@@ -137,6 +142,7 @@ public class BoardDisplay extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(5);
+				button_4.setIcon(highlightedCard(5));
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
@@ -153,6 +159,7 @@ public class BoardDisplay extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(6);
+				button_5.setIcon(highlightedCard(6));
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
@@ -169,6 +176,7 @@ public class BoardDisplay extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(7);
+				button_6.setIcon(highlightedCard(7));
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
@@ -185,6 +193,7 @@ public class BoardDisplay extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				board.selectedCards.add(8);
+				button_7.setIcon(highlightedCard(8));
 				txtCurrentSelection.setText("Current Selection: " + board.displaySelectedCards());
 				game();
 				
@@ -318,6 +327,12 @@ public class BoardDisplay extends JFrame{
 		}
 		
 			if(!board.isLegal(board.selectedCards)) {
+			
+			for(int x = 0; x < board.selectedCards.size(); x++) {
+				
+				buttons[board.selectedCards.get(x)].setIcon(cardIcon(board.selectedCards.get(x)));
+				
+			}
 				
 			board.selectedCards.clear();
 			
@@ -356,6 +371,16 @@ public class BoardDisplay extends JFrame{
 		ImageIcon icon;
 		
 		icon = new ImageIcon(BoardDisplay.class.getResource("/DeckOfCards/" + board.cardAt(x).toString() + ".png"));
+		
+		return icon;
+		
+	}
+	
+	private ImageIcon highlightedCard(int x) {
+		
+		ImageIcon icon;
+		
+		icon = new ImageIcon(BoardDisplay.class.getResource("/HighlightedDeck/" + board.cardAt(x).toString() + "H.png"));
 		
 		return icon;
 		
