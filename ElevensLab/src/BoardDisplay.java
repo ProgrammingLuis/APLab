@@ -271,7 +271,13 @@ public class BoardDisplay extends JFrame{
 	 */
 	
 	public void game() {
-
+		
+		if(board.deckSize() > 0) {if(!board.anotherPlayIsPossible()) {
+			
+		txtCurrentSelection.setText("Game over! You had " + board.deckSize() + " cards left.");
+		
+		}
+		
 		if(board.isLegal(board.selectedCards)) {
 			
 			if(board.containsPairSum11(board.selectedCards)) {
@@ -356,6 +362,8 @@ public class BoardDisplay extends JFrame{
 				
 				btnNewButton_2.setVisible(false);
 				
+				}
+			
 			}
 			
 		}
