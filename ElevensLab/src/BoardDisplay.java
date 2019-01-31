@@ -358,8 +358,6 @@ public class BoardDisplay extends JFrame{
 				
 				}
 			
-			}
-			
 		}
 	
 	/**
